@@ -1,6 +1,3 @@
-var title = title;
-var choices = choices;
-var answer = answer;
 var time = 60;
 var d1 = document.querySelector("#div1")
 var d2 = document.querySelector("#div2")
@@ -10,7 +7,9 @@ var b1 = document.querySelector("#b1")
 var b2 = document.querySelector("#b2")
 var b3 = document.querySelector("#b3")
 var b4 = document.querySelector("#b4")
-var step = 0 
+var step = 0
+
+var answerBtns = document.querySelectorAll('.answer')
  
 d1.innerHTML = ("<h1>My Lame Attempt at a Code Quiz</h1>")
 d2.innerHTML = ("<p>Be Prepared to Have Your Mind Blown</p>")
@@ -46,79 +45,100 @@ var questions = [
 
   d3.addEventListener('click', function () {
     startTimer ()
-  d1.innerHTML = questions[step].title;
+  d1.innerHTML = questions[step].title;//questions and answers are not lined up correctly, will log "correct and timer -5"
   d2.innerHTML = ""
   d3.innerHTML = ""
   b1.innerHTML = questions[step].choices[0]
   b2.innerHTML = questions[step].choices[1]
   b3.innerHTML = questions[step].choices[2]
   b4.innerHTML = questions[step].choices[3]
-  step++;
+  //step++;
   })
 
-  b1.addEventListener('click', function () {
-    if (questions[step].choices[0] === questions[step].answer) {
-      console.log(step)
-      console.log("correct")
-    } else {
-      console.log(step)
-      console.log("time-5")
-    }
-  d1.innerHTML = questions[step].title;
-  b1.innerHTML = questions[step].choices[0]
-  b2.innerHTML = questions[step].choices[1]
-  b3.innerHTML = questions[step].choices[2]
-  b4.innerHTML = questions[step].choices[3]
-  step++;
-})
-
-b2.addEventListener('click', function () {
-  if (questions[step].choices[1] === questions[step].answer) {
-    console.log(step)
-    console.log("correct")
-  } else {
-    console.log(step)
-    console.log("time-5")
-  }
-  d1.innerHTML = questions[step].title;
-  b1.innerHTML = questions[step].choices[0]
-  b2.innerHTML = questions[step].choices[1]
-  b3.innerHTML = questions[step].choices[2]
-  b4.innerHTML = questions[step].choices[3]
-  step++;
-})
-
-b3.addEventListener('click', function () {
-  if (questions[step].choices[2] === questions[step].answer) {
-    console.log(step)
-    console.log("correct")
-  } else {
-    console.log(step)
-    console.log("time-5")
-  }
-  d1.innerHTML = questions[step].title;
-  b1.innerHTML = questions[step].choices[0]
-  b2.innerHTML = questions[step].choices[1]
-  b3.innerHTML = questions[step].choices[2]
-  b4.innerHTML = questions[step].choices[3]
-  step++;
-})
-
-b4.addEventListener('click', function () {
   
-  if (questions[step].choices[3] === questions[step].answer) {
-    console.log(step)
-    console.log("correct")
-  } else {
-    console.log(step)
-    console.log("time-5")
-  }d1.innerHTML = questions[step].title;
-  b1.innerHTML = questions[step].choices[0]
-  b2.innerHTML = questions[step].choices[1]
-  b3.innerHTML = questions[step].choices[2]
-  b4.innerHTML = questions[step].choices[3]
-  step++;
-})
+  for(var i=0; i<answerBtns.length;i++){
+    answerBtns[i].addEventListener('click', function(){
+      console.log(step)
+      if(this.textContent === questions[step].answer){
+        console.log('correct')
+        step++
+      }else{
+        console.log('false')
+        step++;
+      }
+      if(step < questions.length - 1){
+        d1.textContent = questions[step].title;
+        b1.textContent = questions[step].choices[0]
+        b2.textContent = questions[step].choices[1]
+        b3.textContent = questions[step].choices[2]
+        b4.textContent = questions[step].choices[3]
+    }
+    })
+  }
+
+//   b1.addEventListener('click', function () {
+//     if (questions[0].choices[0] === questions[step].answer) {//cannot read property choices 
+//       console.log(step)
+//       console.log("correct")
+//     } else {
+//       console.log(step)
+//       console.log("time-5")
+//     }
+//   d1.innerHTML = questions[step].title;
+//   b1.innerHTML = questions[step].choices[0]
+//   b2.innerHTML = questions[step].choices[1]
+//   b3.innerHTML = questions[step].choices[2]
+//   b4.innerHTML = questions[step].choices[3]
+//   step++;
+// })
+
+// b2.addEventListener('click', function () {
+//   if (questions[step].choices[1] === questions[step].answer) {//cannot read property choices
+//     console.log(step)
+//     console.log("correct")
+//   } else {
+//     console.log(step)
+//     console.log("time-5")
+//   }
+//   d1.innerHTML = questions[step].title;
+//   b1.innerHTML = questions[step].choices[0]
+//   b2.innerHTML = questions[step].choices[1]
+//   b3.innerHTML = questions[step].choices[2]
+//   b4.innerHTML = questions[step].choices[3]
+//   step++;
+// })
+
+// b3.addEventListener('click', function () {
+//   if (questions[step].choices[2] === questions[step].answer) {//cannot read property choices
+//     console.log(step)
+//     console.log("correct")
+//   } else {
+//     console.log(step)
+//     console.log("time-5")
+//   }
+//   d1.innerHTML = questions[step].title;
+//   b1.innerHTML = questions[step].choices[0]
+//   b2.innerHTML = questions[step].choices[1]
+//   b3.innerHTML = questions[step].choices[2]
+//   b4.innerHTML = questions[step].choices[3]
+//   step++;
+// })
+
+// b4.addEventListener('click', function () {
+  
+//   if (questions[step].choices[3] === questions[step].answer) {//cannot read property choices
+//     console.log(step)
+//     console.log("correct")
+//   } 
+//     console.log(step)
+//     console.log("time-5")
+//   d1.innerHTML = questions[step].title;
+//   b1.innerHTML = questions[step].choices[0]
+//   b2.innerHTML = questions[step].choices[1]
+//   b3.innerHTML = questions[step].choices[2]
+//   b4.innerHTML = questions[step].choices[3]
+//   step++;
+// })
 
 
 function startTimer() {
@@ -126,29 +146,32 @@ function startTimer() {
     time--;
     d2.textContent=(time)
     if (time !== 0) {
-    } else if (time === 0){
+    } 
+      else if (questions[step].title === 0){//timer not stopping
+        clearInterval (timer)
+      }
+      else if (time === 0){
       clearInterval (timer);
       alert('Time is up!'); 
     } else {}
   }, 1000);
  }
 
+ //function endQuiz() {
+   //if (questions[step] === 4) {
+     //clearInterval (timer);
+   //}
+   
+//}
 
 
-  //d1.innerHTML = questions[1].title;
-  //d2.innerHTML = questions[1].choices;
 
-  //console.log(i)
+//d1.innerHTML = questions[1].title;
+//d2.innerHTML = questions[1].choices;
 
-
-
+//console.log(i)
 //console.log(questions[0].choices)
-
-
-
-  
-
-
-
-
 //console.log(questions[step].title)
+
+//var lastQuestion = questions.[step] - 1;
+//let runningQuestion = 0;
