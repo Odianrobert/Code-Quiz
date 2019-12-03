@@ -1,19 +1,21 @@
 var title = title;
 var choices = choices;
 var answer = answer;
-​
+var time = 60;
 var d1 = document.querySelector("#div1")
 var d2 = document.querySelector("#div2")
 var d3 = document.querySelector("#div3")
-​
-var step = 2 
-​
-d1.innerHTML = ("<h1>Are you ready motherfucker?</h1>")
-​
-d2.innerHTML = ("<p>This quiz will test your aptitude and abily to survive in the hashest of conditions</p>")
-​
+var d4 = document.querySelector("#div4")
+var b1 = document.querySelector("#b1")
+var b2 = document.querySelector("#b2")
+var b3 = document.querySelector("#b3")
+var b4 = document.querySelector("#b4")
+var step = 0 
+ 
+d1.innerHTML = ("<h1>My Lame Attempt at a Code Quiz</h1>")
+d2.innerHTML = ("<p>Be Prepared to Have Your Mind Blown</p>")
 d3.innerHTML = ('<button class="start">Start!</button>') // this can contain one button or many buttons 
-​
+
 var questions = [
     {
       title: "Commonly used data types DO NOT include:",
@@ -41,31 +43,112 @@ var questions = [
        answer: "if"
     }
   ];
-    for(var i =0; i < questions.length; i++) {
-      console.log(i)
-​
+
+  d3.addEventListener('click', function () {
+    startTimer ()
+  d1.innerHTML = questions[step].title;
+  d2.innerHTML = ""
+  d3.innerHTML = ""
+  b1.innerHTML = questions[step].choices[0]
+  b2.innerHTML = questions[step].choices[1]
+  b3.innerHTML = questions[step].choices[2]
+  b4.innerHTML = questions[step].choices[3]
+  step++;
+  })
+
+  b1.addEventListener('click', function () {
+    if (questions[step].choices[0] === questions[step].answer) {
+      console.log(step)
+      console.log("correct")
+    } else {
+      console.log(step)
+      console.log("time-5")
     }
-​
-    // console.log(questions[0].title)
-​
-​
-    d3.addEventListener("click", function() {
-      // retrieves a "step" variable = to the q number we're on, 
-      step = 
-      // changes innerHTML to the next question 
-      stepQ(step)
-      // updates the step var 
-      step = (step + 1)
-  });
-  
-  function stepQ (step) {
-      d1.innerHTML = (object[step[0]])
-      d2.innerHTML = (object[step[1]])
-  
+  d1.innerHTML = questions[step].title;
+  b1.innerHTML = questions[step].choices[0]
+  b2.innerHTML = questions[step].choices[1]
+  b3.innerHTML = questions[step].choices[2]
+  b4.innerHTML = questions[step].choices[3]
+  step++;
+})
+
+b2.addEventListener('click', function () {
+  if (questions[step].choices[1] === questions[step].answer) {
+    console.log(step)
+    console.log("correct")
+  } else {
+    console.log(step)
+    console.log("time-5")
   }
-​
+  d1.innerHTML = questions[step].title;
+  b1.innerHTML = questions[step].choices[0]
+  b2.innerHTML = questions[step].choices[1]
+  b3.innerHTML = questions[step].choices[2]
+  b4.innerHTML = questions[step].choices[3]
+  step++;
+})
+
+b3.addEventListener('click', function () {
+  if (questions[step].choices[2] === questions[step].answer) {
+    console.log(step)
+    console.log("correct")
+  } else {
+    console.log(step)
+    console.log("time-5")
+  }
+  d1.innerHTML = questions[step].title;
+  b1.innerHTML = questions[step].choices[0]
+  b2.innerHTML = questions[step].choices[1]
+  b3.innerHTML = questions[step].choices[2]
+  b4.innerHTML = questions[step].choices[3]
+  step++;
+})
+
+b4.addEventListener('click', function () {
+  
+  if (questions[step].choices[3] === questions[step].answer) {
+    console.log(step)
+    console.log("correct")
+  } else {
+    console.log(step)
+    console.log("time-5")
+  }d1.innerHTML = questions[step].title;
+  b1.innerHTML = questions[step].choices[0]
+  b2.innerHTML = questions[step].choices[1]
+  b3.innerHTML = questions[step].choices[2]
+  b4.innerHTML = questions[step].choices[3]
+  step++;
+})
+
+
+function startTimer() {
+  timer = setInterval(function() {
+    time--;
+    d2.textContent=(time)
+    if (time !== 0) {
+    } else if (time === 0){
+      clearInterval (timer);
+      alert('Time is up!'); 
+    } else {}
+  }, 1000);
+ }
+
+
+
+  //d1.innerHTML = questions[1].title;
+  //d2.innerHTML = questions[1].choices;
+
+  //console.log(i)
+
+
+
+//console.log(questions[0].choices)
+
+
+
+  
 
 
 
 
-
+//console.log(questions[step].title)
