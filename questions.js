@@ -10,6 +10,7 @@ var b4 = document.querySelector("#b4")
 var step = 0
 
 var answerBtns = document.querySelectorAll('.answer')
+
  
 d1.innerHTML = ("<h1>My Lame Attempt at a Code Quiz</h1>")
 d2.innerHTML = ("<p>Be Prepared to Have Your Mind Blown</p>")
@@ -52,7 +53,6 @@ var questions = [
   b2.innerHTML = questions[step].choices[1]
   b3.innerHTML = questions[step].choices[2]
   b4.innerHTML = questions[step].choices[3]
-  //step++;
   })
 
   
@@ -61,20 +61,43 @@ var questions = [
       console.log(step)
       if(this.textContent === questions[step].answer){
         console.log('correct')
-        step++
+        step++;
       }else{
         console.log('false')
         step++;
       }
-      if(step < questions.length - 1){
+      if(step < questions.length){
         d1.textContent = questions[step].title;
         b1.textContent = questions[step].choices[0]
         b2.textContent = questions[step].choices[1]
         b3.textContent = questions[step].choices[2]
         b4.textContent = questions[step].choices[3]
-    }
+      }
+      if(step === questions.length) {
+        clearInterval (timer);
+        prompt('Enter Your Initials');
+      }
     })
   }
+  
+  function startTimer() {
+    timer = setInterval(function() {
+      time--;
+      d2.textContent=(time)
+      if (time !== 0) {
+      }  
+      if (time === 0){
+        clearInterval (timer);
+        alert('Time is up!'); 
+      }
+      else {}
+    }, 1000);
+   }
+  
+    //function endQuiz() {}
+
+
+
 
 //   b1.addEventListener('click', function () {
 //     if (questions[0].choices[0] === questions[step].answer) {//cannot read property choices 
@@ -141,21 +164,8 @@ var questions = [
 // })
 
 
-function startTimer() {
-  timer = setInterval(function() {
-    time--;
-    d2.textContent=(time)
-    if (time !== 0) {
-    } 
-      else if (questions[step].title === 0){//timer not stopping
-        clearInterval (timer)
-      }
-      else if (time === 0){
-      clearInterval (timer);
-      alert('Time is up!'); 
-    } else {}
-  }, 1000);
- }
+
+
 
  //function endQuiz() {
    //if (questions[step] === 4) {
