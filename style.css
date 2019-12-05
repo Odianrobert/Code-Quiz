@@ -1,3 +1,34 @@
-#body {
-    background-color: orange;
+body {
+    border-style: solid;
+    border-radius: 25px;
+    border-width: 10px;
+    border-color: white;
+    background-image: url("https://english.osu.edu/sites/english.osu.edu/files/styles/250_square_thumbnail/public/images_0.png?itok=QkhFkrPE");
+    background-size: 365px;
+    margin-top: 175px;
+    background-color: white;
+}
+
+h1 {
+    color: white;
+}
+#div2 {
+font-size: x-large;
+color: white;
+
+}
+
+#b1, #b2, #b3, #b4 {
+    background-color: #FF0000;
+    color: #C0C0C0;
+    font-size: large;
+    padding: 20px 30px;
+}
+
+.start {
+    background-color: #FF0000;
+    color: #C0C0C0;
+    font-size: large;
+    padding: 20px 30px;
+    margin-bottom: 30px;
 }

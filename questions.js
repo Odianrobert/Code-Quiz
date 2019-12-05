@@ -10,7 +10,8 @@ var b4 = document.querySelector("#b4")
 var step = 0
 var score = time;
 var answerBtns = document.querySelectorAll('.answer')
-var Name = localStorage.getItem("Name")
+var Name = localStorage.setItem["Name"]
+var score = localStorage.setItem["score"]
  
 d1.innerHTML = ("<h1>My Lame Attempt at a Code Quiz</h1>")
 d2.innerHTML = ("<p>Be Prepared to Have Your Mind Blown</p>")
@@ -60,11 +61,11 @@ var questions = [
     answerBtns[i].addEventListener('click', function(){
       console.log(step)
       if(this.textContent === questions[step].answer){
-        console.log('correct')
+        //console.log('correct')
         step++;
       }else{
         time = time -15;
-        console.log('false')
+        //console.log('false')
         step++;
       }
       if(step < questions.length){
@@ -81,9 +82,9 @@ var questions = [
         // for (i=0; i < 9; i++ ) {        
           if(!Name + [i++]){
         //     console.log("contains Data")
-        Name = prompt('Enter Your Name');
-        localStorage.setItem("Name", Name);
-        localStorage.setItem("score", score);
+        Name = prompt('Enter Your Name'); //localStorage.setItem("quentinTarantino", JSON.stringify(movies));
+        localStorage.setItem("Name", JSON.stringify(Name)); //var localStorage[names] = new Array();
+        localStorage.setItem("score", JSON.stringify(score)); //localStorage.names[0] = prompt("New member name?");
           // } else {
           //   Name = prompt('Enter Your Name');
           //   localStorage.setItem("Name", Name);
