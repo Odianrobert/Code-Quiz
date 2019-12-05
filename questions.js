@@ -1,4 +1,4 @@
-var time = 60;
+var time = 0
 var d1 = document.querySelector("#div1")
 var d2 = document.querySelector("#div2")
 var d3 = document.querySelector("#div3")
@@ -8,9 +8,9 @@ var b2 = document.querySelector("#b2")
 var b3 = document.querySelector("#b3")
 var b4 = document.querySelector("#b4")
 var step = 0
-
+var score = time;
 var answerBtns = document.querySelectorAll('.answer')
-
+var Name = localStorage.getItem("Name")
  
 d1.innerHTML = ("<h1>My Lame Attempt at a Code Quiz</h1>")
 d2.innerHTML = ("<p>Be Prepared to Have Your Mind Blown</p>")
@@ -63,6 +63,8 @@ var questions = [
         console.log('correct')
         step++;
       }else{
+        time -5;
+        
         console.log('false')
         step++;
       }
@@ -74,13 +76,26 @@ var questions = [
         b4.textContent = questions[step].choices[3]
       }
       if(step === questions.length) {
-        clearInterval (timer);
-        prompt('Enter Your Initials');
+        score = time;
+        clearInterval (time);
+        alert('Your Score is ' + score);
+        // for (i=0; i < 9; i++ ) {        
+          if(!Name + [i++]){
+        //     console.log("contains Data")
+
+        Name = prompt('Enter Your Name');
+        localStorage.setItem("Name", Name);
+          // } else {
+          //   Name = prompt('Enter Your Name');
+          //   localStorage.setItem("Name", Name);
+          // }
+      }
       }
     })
   }
   
   function startTimer() {
+    time = 60;
     timer = setInterval(function() {
       time--;
       d2.textContent=(time)
@@ -94,7 +109,7 @@ var questions = [
     }, 1000);
    }
   
-    //function endQuiz() {}
+    
 
 
 
