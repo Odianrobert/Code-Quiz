@@ -63,8 +63,7 @@ var questions = [
         console.log('correct')
         step++;
       }else{
-        time -5;
-        
+        time = time -15;
         console.log('false')
         step++;
       }
@@ -76,26 +75,26 @@ var questions = [
         b4.textContent = questions[step].choices[3]
       }
       if(step === questions.length) {
+        clearInterval (timer);
         score = time;
-        clearInterval (time);
         alert('Your Score is ' + score);
         // for (i=0; i < 9; i++ ) {        
           if(!Name + [i++]){
         //     console.log("contains Data")
-
         Name = prompt('Enter Your Name');
         localStorage.setItem("Name", Name);
+        localStorage.setItem("score", score);
           // } else {
           //   Name = prompt('Enter Your Name');
           //   localStorage.setItem("Name", Name);
           // }
       }
       }
-    })
+    }) 
   }
   
   function startTimer() {
-    time = 60;
+    time = 75;
     timer = setInterval(function() {
       time--;
       d2.textContent=(time)
