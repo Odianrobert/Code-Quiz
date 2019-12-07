@@ -3,15 +3,16 @@ var d1 = document.querySelector("#div1")
 var d2 = document.querySelector("#div2")
 var d3 = document.querySelector("#div3")
 var d4 = document.querySelector("#div4")
+var d5 = document.querySelector("div5")
 var b1 = document.querySelector("#b1")
 var b2 = document.querySelector("#b2")
 var b3 = document.querySelector("#b3")
 var b4 = document.querySelector("#b4")
 var step = 0
 var score = time;
+var scoreList = JSON.parse(localStorage.getItem('currentScore')) || []
 var answerBtns = document.querySelectorAll('.answer')
-var Name = localStorage.setItem["Name"]
-var score = localStorage.setItem["score"]
+
  
 d1.innerHTML = ("<h1>My Lame Attempt at a Code Quiz</h1>")
 d2.innerHTML = ("<p>Be Prepared to Have Your Mind Blown</p>")
@@ -80,15 +81,26 @@ var questions = [
         score = time;
         alert('Your Score is ' + score);
         // for (i=0; i < 9; i++ ) {        
-          if(!Name + [i++]){
+          if(!name + [i++]){
         //     console.log("contains Data")
-        Name = prompt('Enter Your Name'); //localStorage.setItem("quentinTarantino", JSON.stringify(movies));
-        localStorage.setItem("Name", JSON.stringify(Name)); //var localStorage[names] = new Array();
-        localStorage.setItem("score", JSON.stringify(score)); //localStorage.names[0] = prompt("New member name?");
+
+        var name = prompt('Enter Your Name'); //localStorage.setItem("quentinTarantino", JSON.stringify(movies));
+        var currentScore = {name: name, score: score}
+        scoreList.push(currentScore)
+        localStorage.setItem("currentScore", JSON.stringify(scoreList));
+        //function to pull highest score out of array and display on div 5
+        
+        
+        //var localStorage[names] = new Array();  
+        // var currentScore  = JSON.parse( localStorage.getItem("currentScore"));//localStorage.setItem("Name", JSON.stringify(name));
+        // currentScore.push('currentScore');
+        // localStorage.setItem('currentScore', JSON.stringify(currentScore));
+        //localStorage.setItem("score", JSON.stringify(score)); //localStorage.names[0] = prompt("New member name?");
           // } else {
           //   Name = prompt('Enter Your Name');
           //   localStorage.setItem("Name", Name);
           // }
+
       }
       }
     }) 
